@@ -119,3 +119,158 @@ ping -c 4 google.com
 - Ping = tests connectivity.
 - ifconfig = shows network details.
 - MAC spoofing = changing visible MAC address.
+
+
+
+
+
+
+# Module 2 - DNS
+
+---
+
+## DNS (Domain Name System)
+- DNS gives names to IP addresses.
+- Makes websites easier for humans to remember.
+
+Example:
+```text
+142.x.x.x → google.com
+```
+
+### Important
+- Without DNS, we would need to remember IP addresses.
+- DNS helps connect domain names to IP addresses.
+
+---
+
+## Domain Structure
+
+Example:
+```text
+sub.example.com
+```
+
+### Parts
+- `.com` → Top Level Domain (TLD)
+- `example` → Second Level Domain
+- `sub` → Subdomain
+
+---
+
+## Top Level Domain (TLD)
+- Last part of domain name.
+
+Examples:
+```text
+.com
+.org
+.net
+.edu
+```
+
+---
+
+## Second Level Domain
+- Main name of website.
+
+Example:
+```text
+google
+```
+
+---
+
+## Subdomain
+- Small section added before main domain.
+
+Examples:
+```text
+mail.google.com
+blog.website.com
+```
+
+---
+
+## DNS Record Types
+
+### A Record
+- Connects domain to IPv4 address.
+
+---
+
+### AAAA Record
+- Connects domain to IPv6 address.
+
+---
+
+### MX Record
+- Used for mail servers.
+
+---
+
+### CNAME Record
+- Alias for another domain.
+
+---
+
+### TXT Record
+- Stores text information in DNS.
+
+---
+
+## TTL (Time To Live)
+- Shows how long DNS information is stored before refreshing.
+
+---
+
+## dig Command
+Used to get DNS information.
+
+### Commands Practiced
+```bash
+dig google.com
+dig +short google.com
+dig google.com A
+dig google.com MX
+dig google.com CNAME
+```
+
+### What I Practiced
+- Extracted DNS records.
+- Used `+short` for shorter output.
+- Viewed TTL values.
+
+---
+
+## nslookup Command
+Used for DNS lookups.
+
+### Commands Practiced
+```bash
+nslookup google.com
+nslookup 8.8.8.8
+nslookup -type=MX google.com
+```
+
+### What I Practiced
+- Converted domain → IP.
+- Converted IP → domain.
+- Checked DNS record types.
+
+---
+
+## Quick Revision
+- DNS gives names to IP addresses.
+- TLD = `.com`, `.org`, etc.
+- Subdomain comes before main domain.
+- A = IPv4
+- AAAA = IPv6
+- MX = mail server
+- CNAME = alias
+- TXT = text information
+- dig = DNS info tool
+- nslookup = DNS lookup tool
+- TTL = DNS cache time
+
+
