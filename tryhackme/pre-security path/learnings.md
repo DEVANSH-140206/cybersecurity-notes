@@ -274,3 +274,443 @@ nslookup -type=MX google.com
 - TTL = DNS cache time
 
 
+# HTTP IN DETAIL
+
+
+# 1. HTTP & HTTPS
+
+## HTTP
+HTTP (HyperText Transfer Protocol) is the protocol used for communication between a browser and a web server.
+
+- Used to send requests and receive responses
+- Data is usually sent in plain text
+- Default Port: `80`
+
+Example:
+```http
+http://example.com
+```
+
+---
+
+## HTTPS
+HTTPS = HTTP + Encryption using SSL/TLS
+
+- Encrypts communication between client and server
+- Protects passwords, cookies, and sensitive data
+- Default Port: `443`
+- Uses SSL/TLS certificates
+
+Example:
+```http
+https://example.com
+```
+
+### Important
+- HTTP = Not secure
+- HTTPS = Secure & encrypted
+
+---
+
+# 2. URL (Uniform Resource Locator)
+
+A URL is the address of a resource on the internet.
+
+Example:
+```http
+https://tryhackme.com/login
+```
+
+## URL Structure
+
+| Part | Meaning |
+|---|---|
+| `https://` | Protocol |
+| `tryhackme.com` | Domain / Host |
+| `/login` | Path / Resource |
+
+---
+
+# 3. HTTP Request Basics
+
+Client sends a request → Server sends a response
+
+Example:
+```http
+GET / HTTP/1.1
+Host: example.com
+```
+
+---
+
+# 4. HTTP Methods
+
+| Method | Purpose |
+|---|---|
+| `GET` | Retrieve data |
+| `POST` | Send/Create data |
+| `PUT` | Update/Replace data |
+| `DELETE` | Delete data |
+
+---
+
+## GET
+Used to request data from a server.
+
+Example:
+```http
+GET /profile HTTP/1.1
+```
+
+### Important
+- Data often visible in URL
+- Mainly used for fetching data
+- Should not send passwords
+
+---
+
+## POST
+Used to send data to the server.
+
+Example:
+```http
+POST /login HTTP/1.1
+```
+
+### Important
+- Data sent inside request body
+- Used for logins, uploads, account creation
+
+---
+
+## PUT
+Used to update existing resources.
+
+Example:
+```http
+PUT /user/1 HTTP/1.1
+```
+
+---
+
+## DELETE
+Used to delete resources.
+
+Example:
+```http
+DELETE /post/10 HTTP/1.1
+```
+
+---
+
+# 5. HTTP Status Codes
+
+Status codes tell whether a request succeeded or failed.
+
+---
+
+## Status Code Categories
+
+| Range | Meaning |
+|---|---|
+| `100-199` | Informational Responses |
+| `200-299` | Success |
+| `300-399` | Redirection |
+| `400-499` | Client Errors |
+| `500-599` | Server Errors |
+
+---
+
+# 6. Important Status Codes
+
+| Code | Meaning |
+|---|---|
+| `200` | OK |
+| `201` | Created |
+| `301` | Moved Permanently |
+| `302` | Found / Temporary Redirect |
+| `400` | Bad Request |
+| `401` | Unauthorized |
+| `403` | Forbidden |
+| `404` | Page Not Found |
+| `405` | Method Not Allowed |
+| `500` | Internal Server Error |
+| `503` | Service Unavailable |
+
+---
+
+# 7. Easy Status Code Memory Trick
+
+## 2xx → Success
+"Everything worked."
+
+## 3xx → Redirect
+"Go somewhere else."
+
+## 4xx → Client Error
+"You messed up the request."
+
+## 5xx → Server Error
+"Server failed."
+
+---
+
+# 8. HTTP Headers
+
+Headers = Extra information attached to requests and responses.
+
+Think of headers as:
+> "Instructions & metadata"
+
+---
+
+# 9. Request Headers (Client → Server)
+
+## Host
+Tells the server which website you want.
+
+```http
+Host: tryhackme.com
+```
+
+### Important
+One server can host multiple websites.
+
+---
+
+## User-Agent
+Identifies browser/device.
+
+```http
+User-Agent: Mozilla/5.0
+```
+
+### Cybersecurity Importance
+- Can be spoofed/faked
+- Used for fingerprinting
+- Used in bypass attempts
+
+---
+
+## Content-Length
+Size of data being sent.
+
+```http
+Content-Length: 45
+```
+
+### Used In
+- Uploads
+- Login forms
+- File transfers
+
+---
+
+## Accept-Encoding
+Compression formats browser supports.
+
+```http
+Accept-Encoding: gzip, br
+```
+
+### Why Important
+Makes websites load faster.
+
+---
+
+# 10. Response Headers (Server → Client)
+
+## Set-Cookie
+Server gives browser a session ID/cookie.
+
+```http
+Set-Cookie: sessionID=abc123
+```
+
+### Important
+Used to remember logged-in users.
+
+---
+
+## Content-Type
+Tells browser what file/data type was received.
+
+```http
+Content-Type: text/html
+```
+
+Examples:
+```http
+text/html
+image/png
+application/json
+```
+
+---
+
+## Cache-Control
+Controls browser caching.
+
+```http
+Cache-Control: max-age=3600
+```
+
+### Why Important
+Makes websites faster by storing temporary copies.
+
+---
+
+# 11. Cookies
+
+Cookies are small pieces of data stored in the browser.
+
+Used for:
+- Login sessions
+- User preferences
+- Tracking users
+
+Example:
+```http
+Cookie: sessionID=abc123
+```
+
+---
+
+# 12. Why Headers Matter In Cybersecurity
+
+---
+
+## Information Gathering
+
+Headers may reveal server details.
+
+Example:
+```http
+Server: Apache/2.4.41 (Ubuntu)
+```
+
+### Why Important
+Attackers search for vulnerabilities in specific versions.
+
+---
+
+## Bypassing Filters
+
+Attackers may modify:
+- User-Agent
+- Host
+- Custom headers
+
+to trick applications/security systems.
+
+---
+
+## Cookie Theft / Session Hijacking
+
+If attackers steal session cookies:
+- They may access accounts without passwords.
+
+---
+
+# 13. MOST IMPORTANT THINGS TO REMEMBER
+
+## HTTP Flow
+```text
+Client Request → Server Response
+```
+
+---
+
+## HTTPS
+```text
+HTTP + Encryption = HTTPS
+```
+
+---
+
+## Main HTTP Methods
+```text
+GET    → Retrieve data
+POST   → Send/Create data
+PUT    → Update data
+DELETE → Remove data
+```
+
+---
+
+## Main Status Codes
+```text
+200 → Success
+301/302 → Redirect
+401 → Unauthorized
+403 → Forbidden
+404 → Not Found
+500 → Server Error
+503 → Service Unavailable
+```
+
+---
+
+## Important Request Headers
+```text
+Host
+User-Agent
+Content-Length
+Accept-Encoding
+```
+
+---
+
+## Important Response Headers
+```text
+Set-Cookie
+Content-Type
+Cache-Control
+```
+
+---
+
+# 14. Cybersecurity Focus
+
+You should understand:
+- Difference between HTTP & HTTPS
+- Request vs Response
+- GET vs POST
+- Common status codes
+- What headers do
+- How cookies work
+- Why headers matter in reconnaissance and attacks
+
+---
+
+# 15. 30 Second Revision
+
+```text
+HTTP = communication protocol
+HTTPS = encrypted HTTP
+
+GET = retrieve data
+POST = send data
+PUT = update
+DELETE = remove
+
+200 = success
+404 = not found
+403 = forbidden
+500 = server error
+
+Headers = metadata/instructions
+
+Cookies = session tracking
+
+Cybersecurity:
+- Headers leak information
+- User-Agent can be spoofed
+- Cookies can be stolen
+```
+
+---
+
+# Useful Revision Resource
+
+- http.cat → https://http.cat
