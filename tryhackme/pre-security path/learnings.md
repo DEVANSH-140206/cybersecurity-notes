@@ -711,6 +711,272 @@ Cybersecurity:
 
 ---
 
-# Useful Revision Resource
 
-- http.cat → https://http.cat
+
+# HOW WEBSITES WORK
+
+> TryHackMe — Pre Security Path  
+> Fast Revision Notes
+
+---
+
+# 1. How Websites Work
+
+A website works using:
+
+```text
+Client (Browser) ↔ Server
+```
+
+## Basic Flow
+1. User enters a URL
+2. Browser sends HTTP/HTTPS request
+3. Server processes request
+4. Server sends response
+5. Browser displays website
+
+---
+
+# 2. Frontend vs Backend
+
+| Frontend | Backend |
+|---|---|
+| What users see | Server-side logic |
+| Runs in browser | Runs on server |
+| UI / Design | Database & processing |
+| HTML, CSS, JS | PHP, Python, Node.js, Java, etc |
+
+---
+
+# 3. Frontend
+
+Frontend = Everything visible to the user.
+
+Includes:
+- Text
+- Buttons
+- Images
+- Forms
+- Animations
+
+Main Technologies:
+```text
+HTML → Structure
+CSS → Styling
+JavaScript → Functionality
+```
+
+---
+
+# 4. Backend
+
+Backend handles:
+- Authentication
+- Databases
+- Server logic
+- User accounts
+- Processing requests
+
+Backend communicates with:
+```text
+Frontend ↔ Backend ↔ Database
+```
+
+---
+
+# 5. HTML (HyperText Markup Language)
+
+HTML creates the structure of a webpage.
+
+Example:
+```html
+<h1>Hello</h1>
+<p>This is a webpage</p>
+```
+
+### HTML Is Used For
+- Headings
+- Paragraphs
+- Forms
+- Buttons
+- Links
+- Images
+
+---
+
+# 6. JavaScript
+
+JavaScript adds functionality and interactivity to websites.
+
+Example Uses:
+- Popups
+- Animations
+- Form validation
+- Dynamic content
+- Button actions
+
+Example:
+```javascript
+alert("Hello")
+```
+
+---
+
+# 7. View Page Source
+
+Browsers allow viewing website source code.
+
+Shortcut:
+```text
+CTRL + U
+```
+
+or:
+```text
+Right Click → View Page Source
+```
+
+---
+
+# 8. Why View Source Is Important In Cybersecurity
+
+Sensitive information may accidentally be exposed inside HTML source code.
+
+Examples:
+- Comments
+- Hidden links
+- API keys
+- Developer notes
+- Hidden pages
+- Credentials (bad security practice)
+
+Example:
+```html
+<!-- Admin Panel: /admin -->
+```
+
+---
+
+# 9. Important Cybersecurity Habit
+
+ALWAYS check:
+```text
+View Page Source
+```
+
+because developers sometimes leave sensitive information exposed.
+
+---
+
+# 10. HTML Injection
+
+HTML Injection = Injecting HTML code into a webpage input.
+
+Example:
+```html
+<h1>Hacked</h1>
+```
+
+If website improperly handles user input:
+- Injected HTML may appear on webpage
+- Can modify displayed content
+
+---
+
+# 11. Why HTML Injection Matters
+
+Can be used to:
+- Change webpage appearance
+- Mislead users
+- Test input handling
+- Sometimes lead to bigger vulnerabilities
+
+---
+
+# 12. Important Difference
+
+| HTML Injection | JavaScript Injection |
+|---|---|
+| Injects HTML tags | Injects JavaScript code |
+| Changes page structure | Executes scripts/code |
+| Usually less dangerous | More dangerous |
+
+---
+
+# 13. MOST IMPORTANT THINGS TO REMEMBER
+
+## Website Flow
+```text
+Browser ↔ Server
+```
+
+---
+
+## Frontend
+```text
+HTML → Structure
+CSS → Design
+JavaScript → Functionality
+```
+
+---
+
+## Backend
+```text
+Handles logic, databases, authentication, processing
+```
+
+---
+
+## View Source
+```text
+CTRL + U
+```
+
+### Always Check For:
+- Hidden comments
+- Sensitive data
+- Hidden endpoints
+- Developer notes
+
+---
+
+## HTML Injection
+```text
+Injecting HTML into webpage inputs
+```
+
+---
+
+# 14. Cybersecurity Focus
+
+You should understand:
+- Frontend vs Backend
+- Purpose of HTML
+- Purpose of JavaScript
+- Why source code inspection matters
+- Why hidden data exposure is dangerous
+- Basic idea of HTML Injection
+
+---
+
+# 15. 30 Second Revision
+
+```text
+Frontend = What users see
+Backend = Server-side processing
+
+HTML → Structure
+CSS → Styling
+JavaScript → Functionality
+
+CTRL + U → View page source
+
+Always check source code for:
+- Hidden comments
+- API keys
+- Hidden links
+- Sensitive data
+
+HTML Injection = Injecting HTML into webpage inputs
+```
