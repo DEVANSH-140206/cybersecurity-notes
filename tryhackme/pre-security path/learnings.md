@@ -980,3 +980,339 @@ Always check source code for:
 
 HTML Injection = Injecting HTML into webpage inputs
 ```
+
+
+# WEB INFRASTRUCTURE BASICS
+
+> TryHackMe — Pre Security Path  
+> Fast Revision Notes
+
+---
+
+# 1. Web Server
+
+A web server handles HTTP/HTTPS requests and serves website content to users.
+
+Example Web Servers:
+```text
+Apache
+Nginx
+IIS
+```
+
+---
+
+# 2. What A Web Server Does
+
+- Receives requests from browsers
+- Processes requests
+- Sends responses
+- Hosts websites/web applications
+
+Flow:
+```text
+Browser → Web Server → Response
+```
+
+---
+
+# 3. Static vs Dynamic Content
+
+| Static Content | Dynamic Content |
+|---|---|
+| Same for every user | Changes depending on user/data |
+| Fast/simple | Requires backend processing |
+| HTML, CSS, images | Dashboard, login systems, feeds |
+
+---
+
+## Static Content Examples
+```text
+HTML files
+CSS files
+Images
+Videos
+```
+
+---
+
+## Dynamic Content Examples
+```text
+User profiles
+Login systems
+Comments
+Dashboards
+```
+
+Dynamic content usually uses:
+```text
+Backend + Database
+```
+
+---
+
+# 4. Virtual Hosts
+
+Virtual Hosts allow one web server/IP address to host multiple websites.
+
+Example:
+```text
+example1.com
+example2.com
+example3.com
+```
+
+All can run on:
+```text
+Same server
+Same IP address
+```
+
+---
+
+# 5. Why Virtual Hosts Matter In Cybersecurity
+
+Sometimes hidden websites/subdomains exist on the same server.
+
+Attackers may discover:
+- Hidden admin panels
+- Development sites
+- Test environments
+
+---
+
+# 6. Load Balancers
+
+Load Balancer distributes traffic across multiple servers.
+
+Purpose:
+- Prevent overload
+- Improve speed
+- Increase reliability
+
+Flow:
+```text
+Users → Load Balancer → Multiple Servers
+```
+
+---
+
+# 7. Round Robin Load Balancing
+
+Requests are distributed equally between servers.
+
+Example:
+```text
+Request 1 → Server A
+Request 2 → Server B
+Request 3 → Server C
+```
+
+Then repeats.
+
+---
+
+# 8. Weighted Load Balancing
+
+Traffic distribution depends on server power/capacity.
+
+Example:
+```text
+Strong server → More traffic
+Weak server → Less traffic
+```
+
+---
+
+# 9. Content Delivery Network (CDN)
+
+CDN = Network of servers distributed globally.
+
+Purpose:
+- Deliver content faster
+- Reduce latency
+- Reduce server load
+
+Examples:
+```text
+Cloudflare
+Akamai
+```
+
+---
+
+# 10. How CDN Works
+
+Instead of loading content from one distant server:
+```text
+User gets data from nearest CDN server
+```
+
+Benefits:
+- Faster websites
+- Better performance
+- DDoS protection
+
+---
+
+# 11. Databases
+
+Databases store website/application data.
+
+Examples:
+```text
+User accounts
+Passwords
+Posts
+Messages
+```
+
+Popular Databases:
+```text
+MySQL
+PostgreSQL
+MongoDB
+```
+
+---
+
+# 12. Backend & Database Connection
+
+Flow:
+```text
+Frontend ↔ Backend ↔ Database
+```
+
+Example:
+```text
+Login form → Backend checks database → Access granted
+```
+
+---
+
+# 13. Web Application Firewall (WAF)
+
+WAF filters and monitors HTTP traffic.
+
+Purpose:
+- Block malicious requests
+- Protect web applications
+
+---
+
+# 14. What WAF Can Block
+
+Examples:
+- SQL Injection
+- XSS
+- Malicious bots
+- Suspicious traffic
+
+---
+
+# 15. Why WAF Matters In Cybersecurity
+
+Attackers may try to:
+- Bypass WAF rules
+- Evade detection
+- Modify payloads
+
+---
+
+# 16. MOST IMPORTANT THINGS TO REMEMBER
+
+## Web Server
+```text
+Handles HTTP/HTTPS requests
+Serves website content
+```
+
+---
+
+## Static vs Dynamic
+```text
+Static → Same for everyone
+Dynamic → Changes using backend/database
+```
+
+---
+
+## Virtual Hosts
+```text
+One server can host multiple websites
+```
+
+---
+
+## Load Balancer
+```text
+Distributes traffic across servers
+```
+
+### Round Robin
+```text
+Equal distribution
+```
+
+### Weighted
+```text
+More powerful server gets more traffic
+```
+
+---
+
+## CDN
+```text
+Global servers delivering content faster
+```
+
+---
+
+## Database
+```text
+Stores website data
+```
+
+---
+
+## WAF
+```text
+Filters malicious web traffic
+```
+
+---
+
+# 17. Cybersecurity Focus
+
+You should understand:
+- Purpose of web servers
+- Difference between static & dynamic content
+- How load balancers work
+- Why CDNs exist
+- Role of databases
+- What WAF does
+- Why virtual hosts matter in recon
+
+---
+
+# 18. 30 Second Revision
+
+```text
+Web Server → Handles requests
+
+Static → Same content
+Dynamic → Backend + database
+
+Virtual Hosts → Multiple websites on one server
+
+Load Balancer → Distributes traffic
+
+Round Robin → Equal traffic
+Weighted → Based on server power
+
+CDN → Faster delivery using nearby servers
+
+Database → Stores application data
+
+WAF → Blocks malicious requests
+```
