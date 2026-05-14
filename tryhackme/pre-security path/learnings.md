@@ -1552,3 +1552,475 @@ Windows Updates → Patch vulnerabilities
 ```
 
 
+# DATA ENCODING & NUMBER SYSTEMS
+
+> TryHackMe — Pre Security Path  
+> Fast Revision Notes
+
+---
+
+# 1. Bits, Bytes & Octets
+
+| Term | Meaning |
+|---|---|
+| Bit | Smallest unit of data (`0` or `1`) |
+| Byte | 8 bits |
+| Octet | Exactly 8 bits |
+
+---
+
+## Important
+```text
+1 Byte = 8 Bits
+```
+
+Example:
+```text
+01000001
+```
+
+= 8 bits = 1 byte
+
+---
+
+# 2. Binary
+
+Binary = Base 2 number system.
+
+Only uses:
+```text
+0 and 1
+```
+
+Computers store everything in binary:
+- Text
+- Images
+- Files
+- Programs
+
+---
+
+# 3. Decimal
+
+Decimal = Base 10 number system.
+
+Uses:
+```text
+0-9
+```
+
+Normal human number system.
+
+Example:
+```text
+25
+102
+999
+```
+
+---
+
+# 4. Hexadecimal
+
+Hexadecimal = Base 16 number system.
+
+Uses:
+```text
+0-9 and A-F
+```
+
+| Hex | Decimal |
+|---|---|
+| A | 10 |
+| B | 11 |
+| C | 12 |
+| D | 13 |
+| E | 14 |
+| F | 15 |
+
+---
+
+# 5. Why Hexadecimal Is Important
+
+Binary is too long and difficult to read.
+
+Hex makes binary shorter and readable.
+
+Example:
+```text
+Binary:
+01000001
+
+Hex:
+41
+```
+
+---
+
+# 6. Binary ↔ Decimal Conversion
+
+Example:
+```text
+Binary: 1010
+
+= 8 + 2
+= 10
+```
+
+So:
+```text
+1010₂ = 10₁₀
+```
+
+---
+
+# 7. Decimal ↔ Hexadecimal Conversion
+
+Example:
+```text
+Decimal: 255
+
+Hex: FF
+```
+
+---
+
+# 8. Why Hex Is Used In Cybersecurity
+
+Used heavily in:
+- Memory addresses
+- Malware analysis
+- Packet analysis
+- Hex dumps
+- Reverse engineering
+
+---
+
+## Example Memory Address
+```text
+0x7FFE12A0
+```
+
+`0x` means:
+```text
+Hexadecimal value
+```
+
+---
+
+# 9. Hexadecimal In Networking
+
+IP/MAC/network data is often represented in hex.
+
+Example MAC Address:
+```text
+00:1A:2B:FF:AC:91
+```
+
+---
+
+# 10. ASCII Encoding
+
+ASCII = Standard mapping between characters and binary values.
+
+Computers store letters as numbers.
+
+Example:
+| Character | ASCII Decimal | Hex |
+|---|---|---|
+| A | 65 | 41 |
+| a | 97 | 61 |
+| 0 | 48 | 30 |
+
+---
+
+# 11. Important ASCII Ranges
+
+| Range | Meaning |
+|---|---|
+| 48-57 | Numbers (`0-9`) |
+| 65-90 | Uppercase (`A-Z`) |
+| 97-122 | Lowercase (`a-z`) |
+
+---
+
+# 12. Why ASCII Matters In Cybersecurity
+
+When analyzing:
+- Malware
+- Packet captures
+- Hex dumps
+- Encoded payloads
+
+you often see:
+```text
+Hex values instead of text
+```
+
+---
+
+## Example
+
+Hex:
+```text
+54 72 79
+```
+
+ASCII:
+```text
+Try
+```
+
+---
+
+# 13. Important ASCII Difference
+
+```text
+A = 41
+a = 61
+```
+
+Uppercase and lowercase have different hex values.
+
+Very important during:
+- Malware analysis
+- Password analysis
+- Exploit development
+
+---
+
+# 14. Base64 Encoding
+
+Base64 converts binary/text into readable characters.
+
+Commonly seen in:
+- Tokens
+- Cookies
+- APIs
+- Malware payloads
+- Email attachments
+
+---
+
+## Example
+
+Original:
+```text
+hello
+```
+
+Base64:
+```text
+aGVsbG8=
+```
+
+---
+
+# 15. Important Base64 Fact
+
+Base64 is:
+```text
+Encoding
+NOT encryption
+```
+
+Anyone can decode it.
+
+---
+
+# 16. Why Attackers Use Base64
+
+Used to:
+- Hide payloads
+- Obfuscate commands
+- Bypass simple filters
+- Transfer binary safely
+
+---
+
+# 17. Extended ASCII
+
+Extended ASCII uses:
+```text
+8 bits = 256 characters
+```
+
+Allows:
+- More symbols
+- European characters
+- Additional text formats
+
+---
+
+# 18. Encoding Mismatch Vulnerability
+
+If systems use different encodings:
+- Data may be interpreted incorrectly
+- Security filters may fail
+
+Can contribute to:
+- SQL Injection
+- XSS
+- Logic bypasses
+
+---
+
+# 19. Important Symbols In Cybersecurity
+
+---
+
+## New Line
+
+```text
+\n
+Hex: 0A
+```
+
+Used for:
+- Line breaks
+- Shellcode
+- Scripts
+
+---
+
+## Space
+
+```text
+Hex: 20
+```
+
+Important in:
+- Commands
+- Payload parsing
+- Arguments
+
+---
+
+## Null Byte
+
+```text
+Hex: 00
+```
+
+Used in programming languages to:
+```text
+Mark end of string
+```
+
+---
+
+# 20. Null Byte Injection
+
+Attackers may inject:
+```text
+%00
+```
+
+to:
+- Truncate filenames
+- Bypass validation
+- Manipulate program logic
+
+---
+
+# 21. Hex Editors
+
+Used to inspect raw file data.
+
+Common tools:
+```text
+HxD
+CyberChef
+```
+
+---
+
+# 22. MOST IMPORTANT THINGS TO REMEMBER
+
+## Binary
+```text
+Base 2 → 0 and 1
+```
+
+---
+
+## Decimal
+```text
+Base 10
+```
+
+---
+
+## Hexadecimal
+```text
+Base 16 → 0-9 + A-F
+```
+
+---
+
+## ASCII
+```text
+Characters mapped to numbers
+```
+
+---
+
+## Base64
+```text
+Encoding, NOT encryption
+```
+
+---
+
+## Important Hex Values
+```text
+41 = A
+61 = a
+20 = Space
+0A = New line
+00 = Null byte
+```
+
+---
+
+# 23. Cybersecurity Focus
+
+You should understand:
+- Binary ↔ Decimal ↔ Hex conversion basics
+- Why hex is heavily used
+- ASCII character mapping
+- Why Base64 appears everywhere
+- Why encoding matters in attacks
+- What null bytes are
+- Why attackers obfuscate payloads
+
+---
+
+# 24. 30 Second Revision
+
+```text
+1 Byte = 8 bits
+
+Binary → Base 2
+Decimal → Base 10
+Hex → Base 16
+
+Hex is easier to read than binary
+
+ASCII maps characters to numbers
+
+41 = A
+61 = a
+
+Base64 = Encoding, not encryption
+
+00 = Null byte
+20 = Space
+0A = New line
+
+Hex used in:
+- Memory
+- Networking
+- Malware analysis
+- Packet analysis
+```
