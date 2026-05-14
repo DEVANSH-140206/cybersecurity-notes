@@ -1316,3 +1316,239 @@ Database → Stores application data
 
 WAF → Blocks malicious requests
 ```
+
+# OPERATING SYSTEM & WINDOWS BASICS
+
+> TryHackMe — Pre Security Path  
+> Fast Revision Notes
+
+---
+
+# 1. Operating System (OS)
+
+Operating System = Core software managing:
+- Hardware
+- Applications
+- Memory
+- System resources
+
+Examples:
+```text
+Windows
+Linux
+macOS
+```
+
+---
+
+# 2. Kernel Space vs User Space
+
+| Kernel Space | User Space |
+|---|---|
+| Full hardware access | Limited permissions |
+| Core OS functions | Regular applications |
+| Highly privileged | Restricted for safety |
+
+---
+
+## Important
+```text
+Kernel = Highest privilege level
+```
+
+Compromising kernel access = Extremely dangerous.
+
+---
+
+# 3. GUI vs CLI
+
+| GUI | CLI |
+|---|---|
+| Graphical interface | Text-based interface |
+| Easier for beginners | Faster & more powerful |
+| Uses windows/icons | Uses commands |
+
+---
+
+## Cybersecurity Importance
+
+### GUI
+Good for:
+- General navigation
+- Basic management
+
+### CLI
+Preferred in:
+- Linux
+- Hacking
+- Automation
+- Scripting
+- Server management
+
+---
+
+# 4. File Explorer
+
+Used to:
+- Browse files/folders
+- Manage directories
+- View file structures
+
+Cybersecurity use:
+```text
+Finding logs
+Analyzing files
+Navigating systems
+```
+
+---
+
+# 5. Task Manager
+
+Used to monitor:
+- Running processes
+- CPU/RAM usage
+- Background applications
+
+Shortcut:
+```text
+CTRL + SHIFT + ESC
+```
+
+---
+
+## Cybersecurity Importance
+
+Useful for:
+- Detecting suspicious processes
+- Checking malware activity
+- Monitoring resource usage
+
+---
+
+# 6. Windows Security
+
+Central dashboard for built-in Windows protection.
+
+Includes:
+- Antivirus
+- Firewall
+- Threat protection
+
+---
+
+# 7. Windows Defender Firewall
+
+Filters incoming/outgoing network traffic.
+
+Purpose:
+```text
+Block unauthorized access
+```
+
+---
+
+## Firewall Importance In Cybersecurity
+
+Firewalls help:
+- Block malicious connections
+- Restrict network access
+- Protect devices from attacks
+
+---
+
+# 8. Windows Update
+
+Keeps:
+- OS
+- Security patches
+- System components
+
+updated.
+
+---
+
+## Cybersecurity Importance
+
+Updates patch:
+- Vulnerabilities
+- Exploits
+- Security flaws
+
+Outdated systems are common attack targets.
+
+---
+
+# 9. MOST IMPORTANT THINGS TO REMEMBER
+
+## OS
+```text
+Manages hardware, software, and resources
+```
+
+---
+
+## Kernel Space
+```text
+Highest privilege level
+Direct hardware access
+```
+
+---
+
+## User Space
+```text
+Regular applications run here
+```
+
+---
+
+## CLI
+```text
+Important for cybersecurity & Linux
+```
+
+---
+
+## Task Manager
+```text
+Monitor running processes
+Detect suspicious activity
+```
+
+---
+
+## Firewall
+```text
+Filters network traffic
+Blocks unauthorized access
+```
+
+---
+
+## Windows Updates
+```text
+Patch vulnerabilities & security flaws
+```
+
+---
+
+# 10. 30 Second Revision
+
+```text
+OS → Manages system resources
+
+Kernel Space → Highest privileges
+User Space → Regular apps
+
+GUI → Graphical
+CLI → Command-based
+
+Task Manager → Monitor processes
+
+Firewall → Filters traffic
+
+Windows Updates → Patch vulnerabilities
+```
+
+
