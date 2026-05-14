@@ -2024,3 +2024,218 @@ Hex used in:
 - Malware analysis
 - Packet analysis
 ```
+# CYBERSECURITY ENCODING LOGIC
+
+> Important concepts to recognize during analysis  
+> Do NOT memorize full ASCII tables.
+
+---
+
+# 1. Sequential Character Logic
+
+Characters are stored sequentially.
+
+Example:
+```text
+A = 41
+B = 42
+C = 43
+```
+
+Lowercase letters are:
+```text
+20 (Hex) / 32 (Decimal)
+```
+
+higher than uppercase.
+
+Example:
+```text
+A = 41
+a = 61
+```
+
+---
+
+## Why It Matters
+
+Useful for:
+- Detecting encoded text
+- Malware analysis
+- Buffer overflow analysis
+- Pattern recognition in hex dumps
+
+---
+
+# 2. Null Byte (`00`)
+
+```text
+Hex: 00
+```
+
+In many languages (C/C++):
+```text
+00 = End of string
+```
+
+---
+
+## Null Byte Injection
+
+Attackers may use:
+```text
+malware.php%00.jpg
+```
+
+to bypass file filters.
+
+### How It Works
+
+Security filter sees:
+```text
+.jpg
+```
+
+System stops reading at:
+```text
+%00
+```
+
+Actual executed file:
+```text
+malware.php
+```
+
+---
+
+# 3. Non-Printable ASCII Range (`00-1F`)
+
+ASCII values:
+```text
+00 - 1F
+```
+
+are mostly:
+- Control characters
+- Commands
+- Non-printable bytes
+
+Examples:
+```text
+00 → Null Byte
+0A → New Line
+1B → Escape
+```
+
+---
+
+## Why It Matters
+
+If a "text file" contains many:
+```text
+00-1F
+```
+
+bytes, it may actually be:
+- Binary data
+- Executable code
+- Malware
+- Shellcode
+
+---
+
+# 4. Space Character (`20`)
+
+```text
+Hex: 20
+```
+
+represents:
+```text
+Space
+```
+
+---
+
+## Why It Matters
+
+Repeated `20` values in hex dumps usually indicate:
+- Readable text
+- Commands
+- Scripts
+- Source code
+
+---
+
+# 5. Encoding Confusion
+
+Different systems may interpret data differently.
+
+Examples:
+```text
+ASCII
+UTF-8
+ISO-8859-1
+```
+
+---
+
+## Why It Matters
+
+Attackers may encode payloads differently to:
+- Bypass filters
+- Hide malicious input
+- Evade WAF detection
+
+---
+
+## Example
+
+A firewall may block:
+```html
+<script>
+```
+
+but attacker sends:
+```text
+Encoded UTF-8 variation
+```
+
+Browser decodes it later into executable script.
+
+---
+
+# 6. MOST IMPORTANT THINGS TO REMEMBER
+
+```text
+41 = A
+61 = a
+Difference = 20 Hex
+
+00 = Null Byte
+20 = Space
+0A = New Line
+
+00-1F = Control characters
+
+Base64 = Encoding, not encryption
+
+Attackers abuse encoding to:
+- Obfuscate payloads
+- Bypass filters
+- Hide malicious input
+```
+
+---
+
+# 7. Cybersecurity Mindset
+
+You do NOT memorize encoding tables.
+
+You learn to:
+- Recognize patterns
+- Detect anomalies
+- Understand how attackers abuse encoding
+- Read hex dumps logically
+
+
