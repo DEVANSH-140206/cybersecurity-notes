@@ -2239,3 +2239,97 @@ You learn to:
 - Read hex dumps logically
 
 
+# CIA TRIAD
+
+> Core Cybersecurity Principles  
+> Fast Revision Notes
+
+---
+
+# 1. Confidentiality
+
+```text
+Protect data from unauthorized access
+```
+
+Only authorized users should access information.
+
+Examples:
+- Password protection
+- Encryption
+- Access control
+
+---
+
+# 2. Integrity
+
+```text
+Protect data from unauthorized modification
+```
+
+Data should remain:
+- Accurate
+- Trustworthy
+- Unchanged
+
+Examples:
+- Hashing
+- File integrity checks
+- Digital signatures
+
+---
+
+# 3. Availability
+
+```text
+Ensure systems/data are accessible when needed
+```
+
+Services should stay:
+- Online
+- Functional
+- Reachable
+
+Examples:
+- Backups
+- Redundancy
+- DDoS protection
+
+---
+
+# 4. MOST IMPORTANT THINGS TO REMEMBER
+
+```text
+Confidentiality → Prevent unauthorized access
+
+Integrity → Prevent unauthorized changes
+
+Availability → Keep systems/services accessible
+```
+
+---
+
+# 5. Cybersecurity Examples
+
+| Principle | Example Attack |
+|---|---|
+| Confidentiality | Data breach |
+| Integrity | File tampering |
+| Availability | DDoS attack |
+
+---
+
+# 6. 30 Second Revision
+
+```text
+CIA Triad:
+
+C → Confidentiality
+Protect data from unauthorized access
+
+I → Integrity
+Prevent unauthorized modification
+
+A → Availability
+Keep systems accessible and running
+```
