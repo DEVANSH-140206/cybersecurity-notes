@@ -2333,3 +2333,323 @@ Prevent unauthorized modification
 A → Availability
 Keep systems accessible and running
 ```
+
+# CRYPTOGRAPHY BASICS
+
+> TryHackMe — Pre Security Path  
+> Fast Revision Notes
+
+---
+
+# 1. Cryptography
+
+Cryptography protects:
+- Confidentiality
+- Integrity
+- Secure communication
+
+Used in:
+- HTTPS
+- Banking
+- Password protection
+- Messaging apps
+
+---
+
+# 2. Plaintext vs Ciphertext
+
+| Term | Meaning |
+|---|---|
+| Plaintext | Readable data |
+| Ciphertext | Encrypted/scrambled data |
+
+---
+
+## Example
+
+```text
+Plaintext:
+HELLO
+
+Ciphertext:
+KHOOR
+```
+
+---
+
+# 3. Key
+
+A key is the secret value used to:
+- Encrypt data
+- Decrypt data
+
+Without the correct key:
+```text
+Ciphertext should not be readable
+```
+
+---
+
+# 4. Algorithm
+
+Algorithm = Public method/rules used for encryption.
+
+Important:
+```text
+Security should depend on the KEY,
+not hiding the algorithm.
+```
+
+---
+
+# 5. Symmetric Encryption
+
+Uses:
+```text
+ONE shared key
+```
+
+for both:
+- Encryption
+- Decryption
+
+---
+
+## Example
+
+```text
+Encrypt → Secret Key
+Decrypt → Same Secret Key
+```
+
+---
+
+## Advantages
+
+```text
+Fast
+Efficient
+Good for large data
+```
+
+---
+
+## Disadvantages
+
+Main problem:
+```text
+How to securely share the key?
+```
+
+---
+
+# 6. Caesar Cipher
+
+Simple symmetric cipher.
+
+Works by:
+```text
+Shifting letters
+```
+
+Example:
+```text
+A → D
+B → E
+```
+
+---
+
+# 7. Asymmetric Encryption
+
+Uses:
+```text
+Two keys
+```
+
+| Key | Purpose |
+|---|---|
+| Public Key | Encrypt |
+| Private Key | Decrypt |
+
+---
+
+## Important
+
+```text
+Public Key → Can be shared
+Private Key → Must stay secret
+```
+
+---
+
+# 8. Advantages Of Asymmetric Encryption
+
+Solves:
+```text
+Key distribution problem
+```
+
+Used in:
+- HTTPS
+- SSH
+- Digital certificates
+
+---
+
+# 9. Disadvantages Of Asymmetric Encryption
+
+```text
+Slower than symmetric encryption
+```
+
+---
+
+# 10. How HTTPS Works
+
+Real systems combine both methods.
+
+---
+
+## HTTPS Process
+
+### Step 1
+Asymmetric encryption:
+```text
+Securely exchanges shared key
+```
+
+### Step 2
+Symmetric encryption:
+```text
+Encrypts actual communication
+```
+
+---
+
+# 11. Why Symmetric Encryption Is Still Used
+
+Because:
+```text
+It is much faster
+```
+
+than asymmetric encryption.
+
+---
+
+# 12. What The Browser Padlock Means
+
+```text
+HTTPS connection is encrypted
+```
+
+Protects:
+- Passwords
+- Banking info
+- Messages
+- Sensitive data
+
+---
+
+# 13. Cryptography Protects CIA Triad
+
+| CIA Principle | How Crypto Helps |
+|---|---|
+| Confidentiality | Encryption hides data |
+| Integrity | Detects tampering |
+| Availability | Not directly protected |
+
+---
+
+# 14. Important Security Reality
+
+Cryptography alone is NOT enough.
+
+Security also needs:
+- Strong passwords
+- Secure key storage
+- User awareness
+- Software updates
+- Monitoring
+
+---
+
+# 15. MOST IMPORTANT THINGS TO REMEMBER
+
+## Plaintext vs Ciphertext
+```text
+Plaintext = Readable
+Ciphertext = Encrypted
+```
+
+---
+
+## Symmetric Encryption
+```text
+One shared key
+Fast
+Key sharing problem
+```
+
+---
+
+## Asymmetric Encryption
+```text
+Public + Private key
+Solves key exchange problem
+Slower
+```
+
+---
+
+## HTTPS
+```text
+Asymmetric → Key exchange
+Symmetric → Actual communication
+```
+
+---
+
+## Browser Padlock
+```text
+Encrypted HTTPS connection
+```
+
+---
+
+# 16. Cybersecurity Focus
+
+You should understand:
+- Difference between symmetric & asymmetric encryption
+- Purpose of keys
+- Why HTTPS uses both methods
+- Why encryption matters
+- Why key protection is critical
+
+---
+
+# 17. 30 Second Revision
+
+```text
+Plaintext = Readable data
+Ciphertext = Encrypted data
+
+Key = Secret used for encryption/decryption
+
+Symmetric:
+- One key
+- Fast
+- Key sharing problem
+
+Asymmetric:
+- Public + Private key
+- Solves key exchange
+- Slower
+
+HTTPS:
+Asymmetric for setup
+Symmetric for communication
+
+Crypto protects confidentiality & integrity
+```
