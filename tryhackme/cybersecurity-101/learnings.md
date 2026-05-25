@@ -530,3 +530,261 @@ vt file file.txt
 
 searchsploit apache
 ```
+
+# Linux Fundamentals: Core Commands & Operators
+
+> TryHackMe — Quick Revision Notes
+
+---
+
+# 1. System & Navigation Commands
+
+| Command | Purpose | Example |
+|---|---|---|
+| `whoami` | Shows current logged-in user | `whoami` |
+| `pwd` | Shows current directory path | `pwd` |
+| `cd` | Changes directory | `cd /home/user` |
+| `ls` | Lists files/directories | `ls` |
+
+---
+
+# 2. Searching & Viewing Files
+
+## find
+
+Used to search for files and directories.
+
+---
+
+## Find File By Name
+
+```bash
+find -name notes.txt
+```
+
+### Example Output
+
+```text
+./Documents/notes.txt
+```
+
+### Purpose
+Searches current directory and subdirectories for:
+```text
+notes.txt
+```
+
+---
+
+## Find Files Using Wildcards
+
+```bash
+find -name "*.txt"
+```
+
+### Example Output
+
+```text
+./notes.txt
+./logs/access.txt
+./Documents/passwords.txt
+```
+
+### Purpose
+Finds:
+```text
+All .txt files
+```
+
+---
+
+## Find Files In Specific Directory
+
+```bash
+find /var/log -name "*.log"
+```
+
+### Example Output
+
+```text
+/var/log/auth.log
+/var/log/apache2/access.log
+```
+
+### Cybersecurity Use
+Useful for:
+- Finding log files
+- Searching configs
+- Enumerating systems
+
+---
+
+## echo
+
+Prints text/output to terminal.
+
+### Example
+
+```bash
+echo "Hello World"
+```
+
+### Output
+
+```text
+Hello World
+```
+
+---
+
+# 3. Text Analysis & Filtering (Log Analysis Essentials)
+
+## wc -l
+
+Counts:
+```text
+Number of lines
+```
+
+### Example
+
+```bash
+wc -l access.log
+```
+
+### Example Output
+
+```text
+250 access.log
+```
+
+Meaning:
+```text
+access.log contains 250 lines
+```
+
+---
+
+## grep
+
+Searches for specific text/patterns inside files.
+
+---
+
+## Search For An IP Address
+
+```bash
+grep "81.143.211.90" access.log
+```
+
+### Example Output
+
+```text
+81.143.211.90 - - [12/May/2026] "GET /login HTTP/1.1"
+81.143.211.90 - - [12/May/2026] "POST /admin HTTP/1.1"
+```
+
+### Cybersecurity Use
+Useful for:
+- Finding suspicious IPs
+- Investigating attackers
+- Log analysis
+
+---
+
+## Recursive Search
+
+```bash
+grep -R "PRETTY_NAME" /etc/
+```
+
+### Example Output
+
+```text
+/etc/os-release:PRETTY_NAME="Ubuntu 22.04 LTS"
+```
+
+### Purpose
+Recursively searches:
+```text
+All files inside /etc/
+```
+
+for:
+```text
+PRETTY_NAME
+```
+
+---
+
+## Search For Failed Logins
+
+```bash
+grep "Failed password" auth.log
+```
+
+### Example Output
+
+```text
+Failed password for root from 192.168.1.5
+```
+
+### Cybersecurity Use
+Helps detect:
+- Brute-force attacks
+- Unauthorized login attempts
+
+---
+
+# 4. Linux Operators Cheat Sheet
+
+| Operator | Meaning | Example |
+|---|---|---|
+| `&` | Run process in background | `firefox &` |
+| `&&` | Run second command only if first succeeds | `mkdir test && cd test` |
+| `>` | Redirect output (overwrite file) | `echo hello > file.txt` |
+| `>>` | Redirect output (append to file) | `echo hello >> file.txt` |
+
+---
+
+# 5. MOST IMPORTANT THINGS TO REMEMBER
+
+```text
+whoami → Current user
+pwd → Current directory
+cd → Change directory
+ls → List files
+
+find → Search files/directories
+echo → Print text/output
+
+wc -l → Count lines
+grep → Search text/patterns
+
+& → Background execution
+&& → Conditional execution
+> → Overwrite output
+>> → Append output
+```
+
+---
+
+# 6. Quick Command Revision
+
+```bash
+whoami
+pwd
+cd /home/user
+ls
+
+find -name notes.txt
+find /var/log -name "*.log"
+
+echo "Hello World"
+
+wc -l access.log
+
+grep "81.143.211.90" access.log
+grep "Failed password" auth.log
+grep -R "PRETTY_NAME" /etc/
+```
