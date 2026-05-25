@@ -327,3 +327,206 @@ Dynamic Analysis → Run and observe malware
 
 SIEM → Collect logs and detect alerts
 ```
+# Cyber Security Notes: Search Skills & Tools
+
+> TryHackMe — Quick Revision Notes
+
+---
+
+# 1. Shodan & Apache
+
+## Shodan
+**Shodan** = Search engine for internet-connected devices and services.
+
+Used to discover:
+- Open ports
+- Servers
+- Cameras
+- IoT devices
+- Vulnerable systems
+
+---
+
+## Apache
+**Apache** = Popular web server software used to host websites.
+
+Commonly found during:
+- Reconnaissance
+- Enumeration
+- Web scanning
+
+---
+
+## TryScanMe
+```text
+TryScanMe = Safe THM simulation target
+```
+
+Used for practicing reconnaissance safely.
+
+---
+
+## Important Linux Command
+
+```bash
+curl http://MACHINE_IP
+```
+
+### Purpose
+- Sends HTTP request to target
+- Retrieves webpage/server response
+- Useful for enumeration & testing
+
+---
+
+# 2. VirusTotal
+
+## What Is VirusTotal?
+**VirusTotal** = Multi-engine malware scanning platform.
+
+Checks:
+- Files
+- URLs
+- Hashes
+
+against many antivirus engines.
+
+---
+
+## Hash
+A **hash** is a unique fingerprint of a file.
+
+Used to:
+- Identify malware
+- Verify file integrity
+- Search known malicious files
+
+Common hash types:
+```text
+MD5
+SHA1
+SHA256
+```
+
+---
+
+## TryDetectMe
+```text
+TryDetectMe = Safe THM malware analysis simulation
+```
+
+---
+
+## Important Linux Commands
+
+### Generate SHA256 Hash
+```bash
+sha256sum file.txt
+```
+
+### VirusTotal CLI Scan
+```bash
+vt file file.txt
+```
+
+---
+
+# 3. Vulnerability Databases
+
+| Resource | Purpose | Important Point |
+|---|---|---|
+| **CVE** | Vulnerability identifier database | Standardized vulnerability IDs |
+| **Exploit-DB** | Public exploit archive | Stores exploit code & PoCs |
+| **GitHub** | Fast PoC/research sharing | New exploits often appear here first |
+
+---
+
+# 4. CVE
+
+## What Is CVE?
+**CVE (Common Vulnerabilities and Exposures)** = Standardized ID for publicly known vulnerabilities.
+
+Example:
+```text
+CVE-2021-44228
+```
+
+---
+
+# 5. Exploit-DB
+
+## What Is Exploit-DB?
+Database containing:
+- Public exploits
+- PoC code
+- Vulnerability references
+
+Useful during:
+- Pentesting
+- Research
+- Lab practice
+
+---
+
+# 6. SearchSploit
+
+## What Is SearchSploit?
+Linux CLI tool for searching Exploit-DB locally.
+
+---
+
+## Basic Syntax
+
+```bash
+searchsploit apache
+```
+
+### Example
+Searches for:
+```text
+Apache-related exploits
+```
+
+---
+
+## Another Example
+
+```bash
+searchsploit openssh
+```
+
+---
+
+# 7. MOST IMPORTANT THINGS TO REMEMBER
+
+```text
+Shodan → Search engine for internet-connected devices
+
+Apache → Popular web server software
+
+VirusTotal → Multi-engine malware scanner
+
+Hash → Unique fingerprint of a file
+
+CVE → Vulnerability ID system
+
+Exploit-DB → Exploit archive
+
+GitHub → Fast PoC/research sharing
+
+searchsploit → Search Exploit-DB from terminal
+```
+
+---
+
+# 8. Quick Command Revision
+
+```bash
+curl http://MACHINE_IP
+
+sha256sum file.txt
+
+vt file file.txt
+
+searchsploit apache
+```
