@@ -788,3 +788,425 @@ grep "81.143.211.90" access.log
 grep "Failed password" auth.log
 grep -R "PRETTY_NAME" /etc/
 ```
+
+# Windows Terminal Fundamentals for Cybersecurity
+
+> TryHackMe — Quick Revision Notes
+
+---
+
+# 1. Navigation & File Management
+
+| Command | Purpose | Example |
+|---|---|---|
+| `cd` | Change directory | `cd Desktop` |
+| `cd ..` | Move one directory back | `cd ..` |
+| `dir` | List files/directories | `dir` |
+| `mkdir` | Create directory | `mkdir test` |
+| `rmdir` | Remove directory | `rmdir test` |
+| `del` / `erase` | Delete file | `del notes.txt` |
+| `move` | Move file/folder | `move test.txt Desktop` |
+
+---
+
+# Viewing File Content
+
+| Command | Purpose | Example |
+|---|---|---|
+| `type` | Display file contents | `type notes.txt` |
+| `more` | View long files page-by-page | `more notes.txt` |
+
+---
+
+# 2. System Information & Maintenance
+
+---
+
+## systeminfo
+
+Displays:
+- OS details
+- Hardware info
+- Installed patches
+- System configuration
+
+### Example
+
+```cmd
+systeminfo
+```
+
+---
+
+## cls
+
+Clears terminal screen.
+
+### Example
+
+```cmd
+cls
+```
+
+---
+
+## driverquery
+
+Lists installed drivers.
+
+### Example
+
+```cmd
+driverquery
+```
+
+### Cybersecurity Use
+
+Useful for:
+- Investigating drivers
+- Detecting suspicious drivers
+- System analysis
+
+---
+
+## System File Checker
+
+Scans and repairs corrupted system files.
+
+### Example
+
+```cmd
+sfc /scannow
+```
+
+---
+
+## Restart System
+
+### Example
+
+```cmd
+shutdown /r
+```
+
+Purpose:
+```text
+Restart the computer
+```
+
+---
+
+# 3. Networking & Remote Access
+
+---
+
+## ssh
+
+Remote secure shell connection.
+
+### Example
+
+```cmd
+ssh user@192.168.1.10
+```
+
+---
+
+## ipconfig
+
+Displays basic network configuration.
+
+### Example
+
+```cmd
+ipconfig
+```
+
+---
+
+## ipconfig /all
+
+Displays detailed network information.
+
+### Includes:
+- MAC address
+- DNS
+- DHCP
+- IP configuration
+
+### Example
+
+```cmd
+ipconfig /all
+```
+
+---
+
+## ping
+
+Tests connectivity to another system.
+
+### Example
+
+```cmd
+ping google.com
+```
+
+or
+
+```cmd
+ping 8.8.8.8
+```
+
+---
+
+## tracert
+
+Shows path packets take to destination.
+
+### Example
+
+```cmd
+tracert google.com
+```
+
+---
+
+## nslookup
+
+Queries DNS records.
+
+### Example
+
+```cmd
+nslookup google.com
+```
+
+---
+
+## netstat
+
+Displays:
+- Active connections
+- Open ports
+- Listening services
+
+### Example
+
+```cmd
+netstat
+```
+
+### Cybersecurity Use
+
+Useful for:
+- Detecting suspicious connections
+- Investigating malware activity
+- Monitoring ports
+
+---
+
+# 4. Process Management (Blue Team Essentials)
+
+---
+
+## tasklist
+
+Lists running processes.
+
+### Example
+
+```cmd
+tasklist
+```
+
+---
+
+## Filter Specific Process
+
+### Example
+
+```cmd
+tasklist /FI "imagename eq sshd.exe"
+```
+
+### Purpose
+
+Shows only:
+```text
+sshd.exe process
+```
+
+---
+
+## taskkill
+
+Terminates processes.
+
+### Kill By PID
+
+```cmd
+taskkill /PID 1337
+```
+
+---
+
+## Cybersecurity Use
+
+Useful for:
+- Detecting malicious processes
+- Monitoring activity
+- Stopping malware
+
+---
+
+# 5. Pipe Operator
+
+## `| more`
+
+Used to:
+```text
+View long output page-by-page
+```
+
+---
+
+## Example
+
+```cmd
+systeminfo | more
+```
+
+### Purpose
+
+Instead of flooding terminal:
+```text
+Shows output one page at a time
+```
+
+---
+
+# 6. MOST IMPORTANT THINGS TO REMEMBER
+
+```text
+cd → Change directory
+dir → List files
+mkdir → Create directory
+del → Delete file
+
+systeminfo → System details
+driverquery → List drivers
+sfc /scannow → Repair system files
+
+ipconfig → Network info
+ping → Test connectivity
+tracert → Trace packet route
+netstat → View connections/ports
+
+tasklist → List processes
+taskkill → Kill process
+
+| more → View long output page-by-page
+```
+
+# Linux vs Windows Terminal Commands
+
+> Quick Command Comparison Cheat Sheet
+
+---
+
+# 1. Navigation Commands
+
+| Linux | Windows CMD | Purpose |
+|---|---|---|
+| `pwd` | `cd` | Show current directory |
+| `cd` | `cd` | Change directory |
+| `ls` | `dir` | List files/directories |
+
+---
+
+# 2. File & Directory Management
+
+| Linux | Windows CMD | Purpose |
+|---|---|---|
+| `mkdir` | `mkdir` | Create directory |
+| `rm file.txt` | `del file.txt` | Delete file |
+| `rm -r folder` | `rmdir folder` | Delete directory |
+| `mv file.txt folder/` | `move file.txt folder` | Move file |
+| `cat file.txt` | `type file.txt` | View file content |
+
+---
+
+# 3. Searching & Filtering
+
+| Linux | Windows CMD | Purpose |
+|---|---|---|
+| `find` | `dir /s` | Search files |
+| `grep` | `findstr` | Search text/patterns |
+
+---
+
+# 4. Networking Commands
+
+| Linux | Windows CMD | Purpose |
+|---|---|---|
+| `ifconfig` / `ip a` | `ipconfig` | Network configuration |
+| `ping` | `ping` | Test connectivity |
+| `traceroute` | `tracert` | Trace packet route |
+| `netstat` | `netstat` | View network connections |
+| `ssh` | `ssh` | Remote secure connection |
+
+---
+
+# 5. Process Management
+
+| Linux | Windows CMD | Purpose |
+|---|---|---|
+| `ps` | `tasklist` | List running processes |
+| `kill PID` | `taskkill /PID PID` | Kill process |
+
+---
+
+# 6. Important Terminal Differences
+
+| Linux Terminal | Windows CMD |
+|---|---|
+| More powerful for cybersecurity | More beginner-friendly |
+| Widely used in hacking/pentesting | Common in enterprise environments |
+| Better scripting/automation | Easier Windows administration |
+| Most cybersecurity tools built for Linux | Useful for Windows investigation |
+
+---
+
+# 7. Cybersecurity Reality
+
+```text
+Most cybersecurity professionals heavily use Linux.
+
+But Windows CMD/PowerShell is critical for:
+- Blue Teaming
+- Active Directory
+- Enterprise environments
+- Malware investigations
+```
+
+---
+
+# 8. MOST IMPORTANT THINGS TO REMEMBER
+
+```text
+Linux:
+ls → List files
+cat → View file
+grep → Search text
+ifconfig → Network info
+
+Windows:
+dir → List files
+type → View file
+findstr → Search text
+ipconfig → Network info
+
+Linux is dominant in offensive security.
+Windows CMD is important for enterprise defense.
+```
