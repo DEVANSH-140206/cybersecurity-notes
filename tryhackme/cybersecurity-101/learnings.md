@@ -1346,3 +1346,4 @@ Fixes:
 → Install Microsoft patch
 → Block outbound SMB (Port 445)
 ```
+
