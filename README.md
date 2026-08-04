@@ -6,7 +6,10 @@ A structured repository containing my cybersecurity learning notes, practical co
 - Networking
 - Web Security
 - TryHackMe
-- Burp Suite
+- linux
+- html
+- wireshark
+- nmap
 - and more...
 
 ## Purpose
